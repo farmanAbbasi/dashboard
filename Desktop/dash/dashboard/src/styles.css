@@ -1,0 +1,25 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.mat-content{
+    display:block !important;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+
+}
+.mat-content a{
+    text-decoration:none !important;
+    color:white;
+}
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: transparent !important;
+}
+.mat-expansion-panel{
+    background: transparent;
+    box-shadow: transparent !important;
+}
+.mat-expansion-panel-header {
+    padding: 0 10px !important;
+}
+.mat-expansion-panel-body{
+    padding : 0px !important;
+}

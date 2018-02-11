@@ -1,0 +1,56 @@
+.example-card {
+    width: auto;
+    max-width: 500px;
+    margin-bottom:20px;
+    border: #fff double 10px;
+  }
+  .example-card-for-comments {
+    
+    max-width: 100px;
+    margin-bottom:20px;
+    border: #fff double 10px;
+  }
+  
+ 
+  .example-card-content {
+    text-align: left;
+    width:auto;
+    max-width: 500px;
+  
+    margin-bottom:20px;
+    border: #fff double 10px;
+    
+    
+  }
+  
+  .post
+  {
+    float: right;
+    color: blue;
+    
+  }
+  
+  .example-header-image {
+    background-image: url('http://www.iconhot.com/icon/png/glossy/512/user-male-3.png');
+    background-size: cover;
+  }/*https://material.angular.io/assets/img/examples/shiba1.jpg*/
+  
+  div{
+  background-color: #efedea;
+  } 
+  .bodyText{
+    padding:10px;
+  }
+  
+  .search-results {
+    height: 500px;
+    overflow: auto;
+  }
+  .example-form-field {
+    width: 200px;
+  }
+  
+  .your-thoughts{
+    width:400px;
+  }
+  

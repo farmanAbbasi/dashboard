@@ -1,0 +1,18 @@
+[{
+    "company": {
+        "name": "TekSystems",
+        "logo": "assets/images/logo.png"
+    },
+    "person-image": "assets/img/uploads/profile.jpg",
+    "id": 1,
+    "name": "Siddharth Jaidka",
+    "username": "sjaidka",
+    "email": "sjaidka@teksystems.com",
+    "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874"
+    },
+    "phone": "1-770-736-8031 x56442"
+}]

@@ -1,0 +1,55 @@
+<header id="header" class="header affix" role="banner">
+    <nav class="header-navbar">
+        <div class="navbar-header clearfix">
+            <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mini-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-plus"></i>
+            </a>
+
+            <a class="logo pull-left" style="text-decoration: none" href="#">
+                <img src="assets/images/logo/logo.png" width="150" alt="Company Logo">
+                <!--<b id="companyHeader"> {{companyName}}</b>-->
+            </a>
+
+            <a class="sidebar-switch pull-right">
+                <span class="fa fa-bars"></span>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="mini-navbar-collapse">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button class="btn" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="pull-right">
+                    <mat-menu #rootMenu="matMenu">
+                        <button mat-menu-item [matMenuTriggerFor]="subMenu">Power</button>
+                        <button mat-menu-item>System settings</button>
+                    </mat-menu>
+
+                    <mat-menu #subMenu="matMenu">
+                        <button mat-menu-item>Shut down</button>
+                        <button mat-menu-item>Restart</button>
+                        <button mat-menu-item>Hibernate</button>
+                    </mat-menu>
+
+                    <button mat-icon-button [disableRipple]=true [matMenuTriggerFor]="rootMenu">
+                        <figure id="profileTab">
+                            <span>Siddharth Jaidka</span>
+                            <img alt="User Name" class="img-circle" src="assets/images/profile/profile.jpg">
+                        </figure>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- navbar-collapse -->
+    </nav>
+</header>
