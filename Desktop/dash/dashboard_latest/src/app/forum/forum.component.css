@@ -1,0 +1,57 @@
+.example-card {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px double #ccc;
+}
+
+.example-card p {
+    text-align: left;
+}
+
+.thoughtForm {
+    margin-bottom: 30px;
+}
+
+.share-icon {
+    font-size: 15px !important;
+}
+
+.thought {
+    font-size: 14px;
+    height: 50px !important;
+}
+
+.example-header-image {
+    background-image: url('http://www.iconhot.com/icon/png/glossy/512/user-male-3.png');
+    background-size: cover;
+}
+
+#profileTab {
+    display: inline-flex;
+    line-height: 36px;
+}
+
+#profileTab span {
+    font-size: 14px;
+    color: #5c5a5a;
+    padding: 0px 0px 0px 10px;
+}
+
+#profileTab span:hover {
+    color: #5c5a5a;
+}
+
+#profileTab img {
+    height: 36px;
+}
+
+.bottomCard {
+    margin-bottom: -10px !important;
+}
+
+.topCard {
+    margin-top: -10px !important;
+}
+
+
+/*https://material.angular.io/assets/img/examples/shiba1.jpg*/

@@ -1,0 +1,29 @@
+.box{
+    color:#5c5a5a;
+}
+.box ul{
+    padding: 0;
+}
+.example-card{
+    padding:5px !important;
+}
+.row{
+     margin-left: 0px !important;
+     margin-right: 0px !important;
+     /*border-bottom: 1px solid #c5c5c5;*/
+}
+.dis p{
+    word-break:break-all;
+}
+.badge1 {
+    font-weight: bold;
+}
+.cardHeading{
+    font-weight: bold;
+    border-bottom: 1px solid #c5c5c5;
+    border-top: 1px solid #c5c5c5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 15px;
+}

@@ -1,0 +1,39 @@
+.cpeople {
+    padding-left: 0;
+}
+.example-card{
+    padding:5px !important;
+}
+
+#profileTab {
+    display: inline-flex;
+    line-height: auto;
+}
+
+#profileTab span {
+    font-size: 14px;
+    color: #5c5a5a;
+    padding: 0px 0px 0px 10px;
+}
+
+#profileTab span:hover {
+    color: #5c5a5a;
+}
+
+#profileTab img {
+    height: 36px;
+}
+.row{
+     margin-left: 0px !important;
+     margin-right: 0px !important;
+     border-bottom: 1px solid #c5c5c5;
+}
+.cardHeading{
+    font-weight: bold;
+    border-bottom: 1px solid #c5c5c5;
+    border-top: 1px solid #c5c5c5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 15px;
+}

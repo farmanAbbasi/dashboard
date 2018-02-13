@@ -1,0 +1,84 @@
+
+
+<aside *ngIf="!shouldShow" id="sidebar" class="sidebar affix" role="complementary">
+  <div   class="sidebar-container">
+    <div class="sidebar-scrollpane">
+      <div class="sidebar-content">
+        <div role="tabpanel">
+
+          <div class="tab-content">
+
+            <div role="tabpanel" class="tab-pane fade in active" id="nav">
+              <nav class="main-nav">
+                <ul id="sidebar-nav" class="sidebar-nav">
+                  <li>
+                    <a routerLink="/dashboard">
+                      <i class="fa fa-tachometer fa-fw fa-lg"></i>
+                      <b [innerHTML]="'Dashboard' | translate"></b>
+                    </a>
+                  </li>
+                  <li>
+                    <a routerLink="/forum">
+                      <i class="fa fa-newspaper-o fa-fw fa-lg"></i>
+                      <b [innerHTML]="'Forum' | translate"></b>
+                    </a>
+                  </li>
+                  <li>
+                    <mat-accordion [displayMode]="flat">
+                      <mat-expansion-panel class=".mat-elevation-z0" [hideToggle]=true>
+                        <mat-expansion-panel-header [collapsedHeight]="'38px'" [expandedHeight]="'38px'">
+                          <a>
+                            <i class="fa fa-group fa-fw fa-lg"></i>
+                            <b [innerHTML]="'Groups' | translate"></b>
+                            <span class="fa plus-times"></span>
+                          </a>
+                        </mat-expansion-panel-header>
+                        <ul>
+                          <li>
+                            <a routerLink="/createGroup" [innerHTML]="'Create Group' | translate"></a>
+                          </li>
+                          <li>
+                            <a href="#" [innerHTML]="'List Groups' | translate"></a>
+                          </li>
+                        </ul>
+                      </mat-expansion-panel>
+                    </mat-accordion>
+                  </li>
+                  <li>
+                    <mat-accordion [displayMode]="flat">
+                      <mat-expansion-panel class=".mat-elevation-z0" [hideToggle]=true>
+                        <mat-expansion-panel-header [collapsedHeight]="'38px'" [expandedHeight]="'38px'">
+                          <a>
+                            <i class="fa fa-sitemap fa-fw fa-lg"></i>
+                            <b [innerHTML]="'Departments' | translate"></b>
+                            <span class="fa plus-times"></span>
+                          </a>
+                        </mat-expansion-panel-header>
+                        <ul>
+                          <li>
+                            <a routerLink="/createDepartment" [innerHTML]="'Create Department' | translate"></a>
+                          </li>
+                          <li>
+                            <a href="#" [innerHTML]="'List Department' | translate"></a>
+                          </li>
+                        </ul>
+                      </mat-expansion-panel>
+                    </mat-accordion>
+                  </li>
+                  <li>
+                    <a routerLink="/people">
+                      <i class="fa fa-address-book fa-fw fa-lg"></i>
+                      <b [innerHTML]="'People' | translate"></b>
+                    </a>
+                  </li>
+                  <li>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
