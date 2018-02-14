@@ -1,12 +1,28 @@
 .box{
     color:#5c5a5a;
+    /*changes*/
+    position: absolute;
+    
+    
 }
-.box ul{
-    padding: 0;
+ ul{
+      padding: 20px;
+      /*changes*/
+    height:240px;
+    width: 300px;
+    overflow-y:scroll;
+   
+   
 }
-.example-card{
+
+
+.example-card {
+    margin-bottom: 20px;
+    border-radius: 5px;
     padding:5px !important;
+    border: 5px inset  ;
 }
+
 .row{
      margin-left: 0px !important;
      margin-right: 0px !important;
@@ -19,6 +35,8 @@
     font-weight: bold;
 }
 .cardHeading{
+
+    
     font-weight: bold;
     border-bottom: 1px solid #c5c5c5;
     border-top: 1px solid #c5c5c5;
@@ -26,4 +44,7 @@
     padding-bottom: 5px;
     text-align: center;
     font-size: 15px;
+
+  
+
 }

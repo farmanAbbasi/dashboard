@@ -1,5 +1,11 @@
 .cpeople {
     padding-left: 0;
+    /*changes*/
+    position:absolute;
+    height:240px;
+    width: 300px;
+    overflow-y:scroll;
+   
 }
 .example-card{
     padding:5px !important;
@@ -29,6 +35,7 @@
      border-bottom: 1px solid #c5c5c5;
 }
 .cardHeading{
+   
     font-weight: bold;
     border-bottom: 1px solid #c5c5c5;
     border-top: 1px solid #c5c5c5;

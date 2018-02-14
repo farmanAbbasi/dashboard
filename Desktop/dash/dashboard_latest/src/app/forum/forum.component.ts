@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { exit } from 'process';
-import { dog } from './data';
+import { dog } from './datadog';
+
 
 @Component({
   selector: 'app-forum',
@@ -78,16 +79,5 @@ export class ForumComponent implements OnInit {
     }
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
+  
 }

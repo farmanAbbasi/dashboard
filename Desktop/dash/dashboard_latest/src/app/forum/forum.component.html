@@ -23,9 +23,9 @@
           </div>
         </form>
         <div *ngFor="let t of thoughtToShare.reverse();let i=index">
-          <mat-card class="example-card mat-elevation-z0">
+          <mat-card class="example-card "><!--mat-elevation-z0-->
             <mat-card-content class="topCard">
-              <p>{{t}}</p>
+                  <p>{{t}}</p>
             </mat-card-content>
             <mat-card-header class="bottomCard">
               <figure id="profileTab">
@@ -37,9 +37,9 @@
         </div>
 
         <div *ngFor="let t of itemsToShow; let i = index">
-          <mat-card class="example-card mat-elevation-z0">
+          <mat-card class="example-card"> <!--mat-elevation-z0-->
             <mat-card-content class="topCard">
-              <p>{{i+1}} {{dataContent[i]}}</p>
+              <p>{{i+1}} {{t.desc}}</p>
             </mat-card-content>
             <mat-card-header class="bottomCard">
               <figure id="profileTab">
