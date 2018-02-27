@@ -20,6 +20,17 @@
 .thought {
     font-size: 14px;
     height: 50px !important;
+    margin-bottom: 5px;
+   
+}
+.postAndPollSelect{
+    height: 50px ;
+    background-color:buttonface;
+    border: none;
+   
+}
+.optionsClass{
+    max-height:25px !important
 }
 
 .example-header-image {
@@ -36,6 +47,10 @@
     font-size: 14px;
     color: #5c5a5a;
     padding: 0px 0px 0px 10px;
+}
+
+.optionsClass{
+max-height: 15px;
 }
 
 #profileTab span:hover {

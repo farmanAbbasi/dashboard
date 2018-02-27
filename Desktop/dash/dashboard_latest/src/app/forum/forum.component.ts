@@ -37,8 +37,29 @@ export class ForumComponent implements OnInit {
   value = 'Clear me';
   commentCount = 0;
   text: string;
+  selected = 'post';
+  flagForPost = true;
+  flagForPoll = false;
+  arrayOption1=[];
+  arrayOption2=[];
+  optionsToShare=[];
+  ioption=0;
+  io1=0;
+  io2=0;
+ 
 
   constructor() { }
+ 
+  selectChangeHandler(event: any) {
+    this.selected = event.target.value;
+    if (this.selected == "post") {
+      this.flagForPost = true;
+      this.flagForPoll = false;
+    } else if (this.selected == "poll") {
+      this.flagForPoll = true;
+      this.flagForPost = false;
+    } 
+  }
 
   ngOnInit() {
   }
@@ -49,6 +70,19 @@ export class ForumComponent implements OnInit {
   onThoughtKeyUp(event: any) {
     this.thought = event.target.value;
     console.log('firedThrow');
+  }
+  onOption1KeyUp(event :any){
+     this.arrayOption1[this.io1]=event.target.value;
+     this.io1++;
+    
+  }
+  onOption2KeyUp(event :any){
+    this.arrayOption2[this.io2]=event.target.value;
+    this.io2++;
+  }
+  sharePoll(){
+   this.optionsToShare[this.ioption]=this.thought; 
+   this.ioption++;
   }
   shareThought() {
     if (this.shared === true && this.thought.length !== 0) {
@@ -79,5 +113,5 @@ export class ForumComponent implements OnInit {
     }
 
   }
-  
+
 }
