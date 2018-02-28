@@ -1,0 +1,8 @@
+to add the + and - button to the poll..
+
+i used 4 html inputs with ngIf for its displaying
+
+and then two functions : addButtonClicked()
+                         minusButtonClicked()
+
+                         

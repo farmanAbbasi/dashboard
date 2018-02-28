@@ -4,6 +4,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { exit } from 'process';
 import { dog } from './datadog';
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 
 
 @Component({
@@ -40,15 +41,54 @@ export class ForumComponent implements OnInit {
   selected = 'post';
   flagForPost = true;
   flagForPoll = false;
-  arrayOption1=[];
-  arrayOption2=[];
+  arrayOption1='';
+  arrayOption2='';
+  arrayOption3='';
+  arrayOption4='';
   optionsToShare=[];
   ioption=0;
-  io1=0;
-  io2=0;
+  pollQuestion='';
+  pollShareFlag=false;
  
+  o1=false;o2=false;o3=false;
+  k=1;
 
   constructor() { }
+
+  addBtnClicked()
+  {
+     if(this.k<=3)
+     {
+       this.k=this.k-1;
+      if(this.k==0)
+      this.o1=true;
+      if(this.k==1)
+      this.o2=true;
+      if(this.k==2)
+      this.o3=true;
+      this.k+=2;
+     }
+  }
+   //after all 4 btns appear k will be equal to 2
+  minusBtnClicked()
+  {
+   if(this.k==4)
+    {
+      this.o3=false;
+      this.arrayOption4='';
+    }
+   if(this.k==3)
+     {
+       this.o2=false;
+       this.arrayOption3='';
+     }
+   if(this.k==2)
+     {
+       this.o1=false;
+       this.arrayOption2='';
+     }
+   this.k--;
+  }
  
   selectChangeHandler(event: any) {
     this.selected = event.target.value;
@@ -67,23 +107,45 @@ export class ForumComponent implements OnInit {
     this.thought = '';
     // this.shared=true;
   }
+  deletePollQuestion() {
+    this.pollQuestion = '';
+    
+  }
   onThoughtKeyUp(event: any) {
     this.thought = event.target.value;
     console.log('firedThrow');
   }
+  onPollKeyUp(event: any) {
+    this.pollQuestion = event.target.value;
+    console.log('firedpoll');
+  }
+
   onOption1KeyUp(event :any){
-     this.arrayOption1[this.io1]=event.target.value;
-     this.io1++;
-    
+     this.arrayOption1=event.target.value;
   }
   onOption2KeyUp(event :any){
-    this.arrayOption2[this.io2]=event.target.value;
-    this.io2++;
+    this.arrayOption2=event.target.value;
   }
+  onOption3KeyUp(event :any){
+    this.arrayOption3=event.target.value;
+ }
+ onOption4KeyUp(event :any){
+   this.arrayOption4=event.target.value;
+ }
+
+   iii=0;
   sharePoll(){
-   this.optionsToShare[this.ioption]=this.thought; 
-   this.ioption++;
+    if(this.pollQuestion.length!==0)
+    {
+      this.pollShareFlag=true;
+      this.optionsToShare[this.iii]=this.pollQuestion; 
+      this.iii++;
+      this.deletePollQuestion();
+    }
+    
   }
+
+
   shareThought() {
     if (this.shared === true && this.thought.length !== 0) {
       this.toShare = true;

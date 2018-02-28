@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <gridStack class="backdrop" w="12" animate="true" cellHeight="auto" staticGrid=true>
   <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="4" data-gs-height="4">
     <div class="grid-stack-item-content scrollbar" id="style-2">
       <app-most-connected></app-most-connected>
+
     </div>
   </div>
   <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="4" data-gs-height="4">
@@ -11,7 +13,7 @@
   </div>
   <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="8" data-gs-height="8">
     <div class="grid-stack-item-content scrollbar" id="style-2" infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false">
-      <div align="center" >
+      <div align="center">
         <form class="thoughtForm">
           <div class="input-group input-group-sm" *ngIf="flagForPost">
             <input (keyup)="onThoughtKeyUp($event)" [(ngModel)]="thought" name="thought" type="text" class="form-control thought" placeholder="Jot down your thoughts...">
@@ -22,43 +24,68 @@
               <select class="postAndPollSelect" (change)="selectChangeHandler($event)">
                 <option value="post">{{selected}}</option>
                 <option value="poll">poll</option>
-              
+
               </select>
             </span>
           </div>
 
           <div *ngIf="flagForPoll">
-          <div class="input-group input-group-sm" >
-            <  (keyup)="onThoughtKeyUp($event)" [(ngModel)]="thought" name="thought" type="text" class="form-control thought" placeholder="Write down the poll here">
-            <span class="input-group-btn">
-              <button (click)="sharePoll()" class="btn thought" type="button">
-                <i class="fa fa-paper-plane share-icon"></i>
-              </button>
-              <select class="postAndPollSelect" (change)="selectChangeHandler($event)">
-                <option value="poll">{{selected}}</option>
-                <option value="post">post</option>
-              </select>
-            </span>
-          </div>
-          <div align="left">
-            <form >
-                <mat-form-field >
-                    <input (keyup)="onOption1KeyUp($event)"  type="text" class=" form-control thought optionsClass " matInput placeholder="option 1">
-                  </mat-form-field><br>
-                
-                  <mat-form-field >
-                    <input (keyup)="onOption2KeyUp($event)"  type="text" class="form-control thought optionsClass" matInput placeholder="option 2">
+
+            <div class="input-group input-group-sm">
+              <input (keyup)="onPollKeyUp($event)" [(ngModel)]="pollQuestion" name="pollQuestion" type="text" class="form-control thought"
+                placeholder="Jot down the poll here">
+              <span class="input-group-btn">
+                <button (click)="sharePoll()" class="btn thought" type="button">
+                  <i class="fa fa-paper-plane share-icon"></i>
+                </button>
+                <select class="postAndPollSelect" (change)="selectChangeHandler($event)">
+                  <option value="poll">{{selected}}</option>
+                  <option value="post">post</option>
+                </select>
+              </span>
+            </div>
+            <div align="left">
+              <form>
+                <div>
+                  <mat-form-field>
+                    <input (keyup)="onOption1KeyUp($event)" type="text" class=" form-control thought optionsClass " matInput placeholder="option 1">
+                    <i class="fa fa-plus-square" (click)="addBtnClicked()"></i>
                   </mat-form-field>
-            </form>
-           
+                  <br>
+                </div>
+                <div *ngIf="o1">
+                  <mat-form-field>
+                    <input (keyup)="onOption2KeyUp($event)" type="text" class="form-control thought optionsClass" matInput placeholder="option 2">
+                    <i class="fa fa-minus-square" (click)="minusBtnClicked()"></i>
+                  </mat-form-field>
+                  <br>
+                </div>
+                <div *ngIf="o2">
+                  <mat-form-field>
+
+                    <input (keyup)="onOption3KeyUp($event)" type="text" class=" form-control thought optionsClass " matInput placeholder="option 3">
+                    <i class="fa fa-minus-square" (click)="minusBtnClicked()"></i>
+                  </mat-form-field>
+                  <br>
+                </div>
+                <div *ngIf="o3">
+                  <mat-form-field>
+                    <input (keyup)="onOption4KeyUp($event)" type="text" class="form-control thought optionsClass" matInput placeholder="option 4">
+                    <i class="fa fa-minus-square" (click)="minusBtnClicked()"></i>
+                  </mat-form-field>
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-         
+
         </form>
-        <div *ngFor="let o of optionsToShare.reverse();let i=index">
-            <mat-card class="example-card "><!--mat-elevation-z0-->
+        <div *ngIf="pollShareFlag">
+          <div *ngFor="let o of optionsToShare.reverse();let i=index">
+            <mat-card class="example-card ">
+              <!--mat-elevation-z0-->
               <mat-card-content class="topCard">
-                    <p>{{o}}<br>{{arrayOption1}} {{arrayOption2}}</p>
+                <p>{{o}}  {{arrayOption1}} {{arrayOption2}} {{arrayOption3}}  {{arrayOption4}}
+                  <br> </p>
               </mat-card-content>
               <mat-card-header class="bottomCard">
                 <figure id="profileTab">
@@ -67,11 +94,28 @@
                 </figure>
               </mat-card-header>
             </mat-card>
+          </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div *ngFor="let t of thoughtToShare.reverse();let i=index">
-          <mat-card class="example-card "><!--mat-elevation-z0-->
+          <mat-card class="example-card ">
+            <!--mat-elevation-z0-->
             <mat-card-content class="topCard">
-                  <p>{{t}}</p>
+              <p>{{t}}</p>
             </mat-card-content>
             <mat-card-header class="bottomCard">
               <figure id="profileTab">
@@ -83,7 +127,8 @@
         </div>
 
         <div *ngFor="let t of itemsToShow; let i = index">
-          <mat-card class="example-card"> <!--mat-elevation-z0-->
+          <mat-card class="example-card">
+            <!--mat-elevation-z0-->
             <mat-card-content class="topCard">
               <p>{{i+1}} {{t.desc}}</p>
             </mat-card-content>

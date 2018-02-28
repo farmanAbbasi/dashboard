@@ -32,7 +32,20 @@
 .optionsClass{
     max-height:25px !important
 }
-
+.fa-plus-square{
+    position: absolute;
+    left:180px;
+    top:8px;
+    font-size:20px;
+    color: #5c5a5a;
+}
+.fa-minus-square{
+    position: absolute;
+    left:180px;
+    top:8px;
+    font-size:20px;
+    color: #5c5a5a;
+}
 .example-header-image {
     background-image: url('http://www.iconhot.com/icon/png/glossy/512/user-male-3.png');
     background-size: cover;
