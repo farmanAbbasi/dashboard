@@ -80,31 +80,28 @@
 
         </form>
         <div *ngIf="pollShareFlag">
-          <div *ngFor="let o of optionsToShare.reverse();let i=index">
+          <div *ngFor="let o of optionsToShare;let i=index">
             <mat-card class="example-card ">
               <!--mat-elevation-z0-->
               <mat-card-content class="topCard">
-                <p>{{o}}  {{arrayOption1}} {{arrayOption2}} {{arrayOption3}}  {{arrayOption4}}
-                  <br> </p>
+                <p>{{i+1}} {{o}}
+                  <br> 
+                 <button class ="pollOptions"mat-button>{{arrayOptionAll[(i*4)+4]}}</button><br>
+                  <button class ="pollOptions"mat-button>{{arrayOptionAll[(i*4)+5]}} </button><br>
+                  <button class ="pollOptions" mat-button>{{arrayOptionAll[(i*4)+6]}}</button><br>
+                  <button class ="pollOptions"mat-button>{{arrayOptionAll[(i*4)+7]}} </button>
+                
+                </p>
               </mat-card-content>
               <mat-card-header class="bottomCard">
                 <figure id="profileTab">
                   <img alt="User Name" class="img-circle" src="assets/images/profile/profile.jpg">
-                  <span>Posted by John Doe</span>
+                  <span>Poll posted by John Doe</span>
                 </figure>
               </mat-card-header>
             </mat-card>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
 
 
 

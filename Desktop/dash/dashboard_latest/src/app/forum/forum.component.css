@@ -2,13 +2,15 @@
     margin-bottom: 20px;
     border-radius: 5px;
    
-    border: 6px inset  ;
+    
 }
-
 .example-card p {
     text-align: left;
 }
-
+.pollOptions{
+    font-style:italic;
+    
+}
 .thoughtForm {
     margin-bottom: 30px;
 }
