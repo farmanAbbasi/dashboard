@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <gridStack class="backdrop" w="12" animate="true" cellHeight="auto" staticGrid=true>
   <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="4" data-gs-height="4">
@@ -85,12 +86,19 @@
               <!--mat-elevation-z0-->
               <mat-card-content class="topCard">
                 <p>{{i+1}} {{o}}
-                  <br> 
-                 <button class ="pollOptions"mat-button>{{arrayOptionAll[(i*4)+4]}}</button><br>
-                  <button class ="pollOptions"mat-button>{{arrayOptionAll[(i*4)+5]}} </button><br>
-                  <button class ="pollOptions" mat-button>{{arrayOptionAll[(i*4)+6]}}</button><br>
-                  <button class ="pollOptions"mat-button>{{arrayOptionAll[(i*4)+7]}} </button>
-                
+                  <br>
+                  <br>
+                  <mat-radio-group>
+                    <mat-radio-button *ngIf="arrayOptionAll[(i*4)+4]" value="1">{{arrayOptionAll[(i*4)+4]}}</mat-radio-button><br>
+                    <mat-radio-button *ngIf="arrayOptionAll[(i*4)+5]" value="2">{{arrayOptionAll[(i*4)+5]}}</mat-radio-button><br>
+                    <mat-radio-button *ngIf="arrayOptionAll[(i*4)+6]" value="3">{{arrayOptionAll[(i*4)+6]}}</mat-radio-button><br>
+                    <mat-radio-button *ngIf="arrayOptionAll[(i*4)+7]" value="4">{{arrayOptionAll[(i*4)+7]}} </mat-radio-button>
+                  </mat-radio-group><br>
+                  <button mat-button class ="pollOptions">submit</button>
+                <!-- <button  mat-button class ="pollOptions"></button><br>
+                  <button mat-button class ="pollOptions"> </button><br>
+                  <button  mat-button class ="pollOptions"></button><br>
+                 -->
                 </p>
               </mat-card-content>
               <mat-card-header class="bottomCard">
@@ -102,10 +110,6 @@
             </mat-card>
           </div>
         </div>
-
-
-
-
 
 
         <div *ngFor="let t of thoughtToShare.reverse();let i=index">

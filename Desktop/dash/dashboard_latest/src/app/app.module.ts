@@ -43,6 +43,7 @@ import { TrendingComponent } from './trending/trending.component';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { DepartmentFormComponent } from './department-form/department-form.component';
 import { AngularFilePickerModule } from 'angular-file-picker';// for picking a media
+import { MatRadioModule } from '@angular/material/radio';//for radio button
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -93,6 +94,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRouterModule,
     GridStackModule,
     AngularFilePickerModule,//for picking a media
+    MatRadioModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

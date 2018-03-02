@@ -51,11 +51,16 @@ export class ForumComponent implements OnInit {
   ioption = 0;
   pollQuestion = '';
   pollShareFlag = false;
-
-  o1 = false; o2 = false; o3 = false;
+  
+  oRadio=[];
+  o1 = false;
+  o2 = false;
+  o3 = false;
   k = 1;
 
   constructor() { }
+
+  
 
   addBtnClicked() {
     if (this.k <= 3) {
@@ -102,16 +107,17 @@ export class ForumComponent implements OnInit {
   deleteThought() {
     this.thought = '';
     // this.shared=true;
+    this.arrayOption1='';
+    this.arrayOption2='';
+    this.arrayOption3='';
+    this.arrayOption4='';
+
   }
 
   deletePollQuestion() {
     this.pollQuestion = '';
-    /*
-     this.arrayOption1=''; 
-     this.arrayOption2='';
-     this.arrayOption3='';
-    this.arrayOption4='';
-    */
+    
+    
   }
 
   onThoughtKeyUp(event: any) {
@@ -125,22 +131,22 @@ export class ForumComponent implements OnInit {
 
   onOption1KeyUp(event: any) {
     this.arrayOption1 = event.target.value;
-    console.log('typing option 1');
+    
 
   }
   onOption2KeyUp(event: any) {
     this.arrayOption2 = event.target.value;
-    console.log('typing option 2');
+   
 
   }
   onOption3KeyUp(event: any) {
     this.arrayOption3 = event.target.value;
-    console.log('typing option 3');
+    
 
   }
   onOption4KeyUp(event: any) {
     this.arrayOption4 = event.target.value;
-    console.log('typing option 4');
+    
 
   }
 
