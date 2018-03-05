@@ -51,17 +51,36 @@ export class ForumComponent implements OnInit {
   ioption = 0;
   pollQuestion = '';
   pollShareFlag = false;
-  
-  oRadio=[];
+
+  checkedBool = false;
+  checkedBoolArray = [];
+
+  oRadio = [];
   o1 = false;
   o2 = false;
   o3 = false;
   k = 1;
-
+  check=0;
   constructor() { }
 
-  
 
+  /////////////////////////////////////changed////////////////////////////////////////////////
+
+  setMultipleChoicePoll() {
+    
+    if (this.checkedBool == false) {
+      this.checkedBool = true;
+      this.checkedBoolArray[this.check]=this.checkedBool;
+      this.check+=1;
+      console.log(this.checkedBool);
+    }
+    else {
+      this.checkedBool = false;
+      this.checkedBoolArray[this.check]=this.checkedBool;
+      this.check+=1;
+      console.log(this.checkedBool);
+    }
+  }
   addBtnClicked() {
     if (this.k <= 3) {
       this.k = this.k - 1;
@@ -106,18 +125,14 @@ export class ForumComponent implements OnInit {
   }
   deleteThought() {
     this.thought = '';
-    // this.shared=true;
-    this.arrayOption1='';
-    this.arrayOption2='';
-    this.arrayOption3='';
-    this.arrayOption4='';
-
+    this.arrayOption1 = '';
+    this.arrayOption2 = '';
+    this.arrayOption3 = '';
+    this.arrayOption4 = '';
   }
 
   deletePollQuestion() {
     this.pollQuestion = '';
-    
-    
   }
 
   onThoughtKeyUp(event: any) {
@@ -131,36 +146,29 @@ export class ForumComponent implements OnInit {
 
   onOption1KeyUp(event: any) {
     this.arrayOption1 = event.target.value;
-    
-
   }
   onOption2KeyUp(event: any) {
     this.arrayOption2 = event.target.value;
-   
-
   }
   onOption3KeyUp(event: any) {
     this.arrayOption3 = event.target.value;
-    
-
   }
   onOption4KeyUp(event: any) {
     this.arrayOption4 = event.target.value;
-    
-
   }
 
   iii = 0;
   newArrayForPoll = [][4];
   sharePoll() {
-    if (this.pollQuestion.length !== 0  ) {
-     
+    if (this.pollQuestion.length !== 0) {
+
       this.optionsToShare[this.iii] = this.pollQuestion;
       this.iii++;
-      this.arrayOptionAll[(this.iii*4)+0] = this.arrayOption1;
-      this.arrayOptionAll[(this.iii*4)+1] = this.arrayOption2;
-      this.arrayOptionAll[(this.iii*4)+2] = this.arrayOption3;
-      this.arrayOptionAll[(this.iii*4)+3] = this.arrayOption4;
+      this.arrayOptionAll[(this.iii * 4) + 0] = this.arrayOption1;
+      this.arrayOptionAll[(this.iii * 4) + 1] = this.arrayOption2;
+      this.arrayOptionAll[(this.iii * 4) + 2] = this.arrayOption3;
+      this.arrayOptionAll[(this.iii * 4) + 3] = this.arrayOption4;
+    //fifth place pe multiple or singl option true ya false save hogi
       this.pollShareFlag = true;
       this.deletePollQuestion();
     }
@@ -173,7 +181,6 @@ export class ForumComponent implements OnInit {
         this.j = this.j + 1;
         this.deleteThought();
       }
-
     }
   }
   onScroll() {
