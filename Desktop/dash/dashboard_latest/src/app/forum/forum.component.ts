@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { exit } from 'process';
 import { dog } from './datadog';
 import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
+import { pollSeries } from './polls_model';////step 1
 
+var pollSeriesModel=new pollSeries;
 
 @Component({
   selector: 'app-forum',
@@ -52,7 +54,7 @@ export class ForumComponent implements OnInit {
   pollQuestion = '';
   pollShareFlag = false;
 
-  checkedBool = false;
+  checkedBool  = false;
   checkedBoolArray = [];
 
   oRadio = [];
@@ -60,27 +62,30 @@ export class ForumComponent implements OnInit {
   o2 = false;
   o3 = false;
   k = 1;
-  check=0;
+  check = 0;
+
   constructor() { }
 
 
   /////////////////////////////////////changed////////////////////////////////////////////////
+  ngOnInit() {
+   }
+   
+   setMultipleChoicePoll() {
+     if(this.checkedBool==false)
+    {  
+       this.checkedBool=true;
+      // console.log(this.checkedBool)
+      
+    }
+    else{
+         this.checkedBool=false;
+        // console.log(this.checkedBool);
+    }
+   }
+ 
 
-  setMultipleChoicePoll() {
-    
-    if (this.checkedBool == false) {
-      this.checkedBool = true;
-      this.checkedBoolArray[this.check]=this.checkedBool;
-      this.check+=1;
-      console.log(this.checkedBool);
-    }
-    else {
-      this.checkedBool = false;
-      this.checkedBoolArray[this.check]=this.checkedBool;
-      this.check+=1;
-      console.log(this.checkedBool);
-    }
-  }
+
   addBtnClicked() {
     if (this.k <= 3) {
       this.k = this.k - 1;
@@ -121,8 +126,7 @@ export class ForumComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-  }
+  
   deleteThought() {
     this.thought = '';
     this.arrayOption1 = '';
@@ -158,21 +162,38 @@ export class ForumComponent implements OnInit {
   }
 
   iii = 0;
-  newArrayForPoll = [][4];
+  
+
   sharePoll() {
     if (this.pollQuestion.length !== 0) {
-
       this.optionsToShare[this.iii] = this.pollQuestion;
-      this.iii++;
       this.arrayOptionAll[(this.iii * 4) + 0] = this.arrayOption1;
       this.arrayOptionAll[(this.iii * 4) + 1] = this.arrayOption2;
       this.arrayOptionAll[(this.iii * 4) + 2] = this.arrayOption3;
       this.arrayOptionAll[(this.iii * 4) + 3] = this.arrayOption4;
-    //fifth place pe multiple or singl option true ya false save hogi
+      console.log(this.arrayOptionAll[0]);
+      console.log(this.arrayOptionAll[1]);
+      console.log(this.arrayOptionAll[2]);
+      console.log(this.arrayOptionAll[3]);
+      this.iii++;
+      //fifth place pe multiple or singl option true ya false save hogi
       this.pollShareFlag = true;
-      this.deletePollQuestion();
+     
     }
+
+    
+    pollSeriesModel.pollquestion=this.pollQuestion;
+    pollSeriesModel.choices=this.arrayOptionAll;
+    pollSeriesModel.ismultiplechoice=this.checkedBool;
+    console.log(pollSeriesModel.pollquestion);
+    console.log(pollSeriesModel.choices);  
+    console.log(pollSeriesModel.ismultiplechoice);
+    var stringIs=JSON.stringify(pollSeriesModel);
+    console.log(stringIs);
+
+  this.deletePollQuestion();
   }
+
   shareThought() {
     if (this.shared === true && this.thought.length !== 0) {
       this.toShare = true;
@@ -183,6 +204,7 @@ export class ForumComponent implements OnInit {
       }
     }
   }
+  
   onScroll() {
     console.log('fired');
     if (this.noOfItemsToShowInitially <= dog.length) {

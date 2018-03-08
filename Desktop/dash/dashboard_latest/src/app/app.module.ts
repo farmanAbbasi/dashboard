@@ -44,7 +44,8 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { DepartmentFormComponent } from './department-form/department-form.component';
 import { AngularFilePickerModule } from 'angular-file-picker';
 import { MatRadioModule } from '@angular/material/radio';//for radio button
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -97,6 +98,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFilePickerModule,//for picking a media
     MatRadioModule,
     MatCheckboxModule,
+    MatSlideToggleModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

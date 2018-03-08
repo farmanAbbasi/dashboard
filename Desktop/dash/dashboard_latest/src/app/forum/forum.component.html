@@ -1,9 +1,9 @@
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <gridStack class="backdrop" w="12" animate="true" cellHeight="auto" staticGrid=true>
   <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="4" data-gs-height="4">
     <div class="grid-stack-item-content scrollbar" id="style-2">
       <app-most-connected></app-most-connected>
-
     </div>
   </div>
   <div class="grid-stack-item" data-gs-x="9" data-gs-y="0" data-gs-width="4" data-gs-height="4">
@@ -36,7 +36,7 @@
               <input (keyup)="onPollKeyUp($event)" [(ngModel)]="pollQuestion" name="pollQuestion" type="text" class="form-control thought"
                 placeholder="Jot down the poll here">
               <span class="input-group-btn">
-                <button (click)="sharePoll()" class="btn thought" type="button">
+                <button (click)="sharePoll(inp1.value)" class="btn thought" type="button" >
                   <i class="fa fa-paper-plane share-icon"></i>
                 </button>
                 <select class="postAndPollSelect" (change)="selectChangeHandler($event)">
@@ -50,16 +50,17 @@
               <form>
                 <div>
                   <mat-form-field>
-                    <input (keyup)="onOption1KeyUp($event)" type="text" class=" form-control thought optionsClass " matInput placeholder="option 1">
+                    <input #inp1 (keyup)="onOption1KeyUp($event)" type="text" class=" form-control thought optionsClass " matInput placeholder="option 1">
                     <i class="fa fa-plus-square" (click)="addBtnClicked()"></i>
+                   <!-- <mat-slide-toggle class="multipleChoicePoll" (click)="setMultipleChoicePoll()" [(ngModel)]="checkedBool" Multiple choice></mat-slide-toggle>-->
                   </mat-form-field>
-                  <mat-checkbox class="multipleChoicePoll"(click)="setMultipleChoicePoll()" [(checked)]="checkedBool">Multiple choice</mat-checkbox>
+                 <mat-checkbox class="multipleChoicePoll" (click)="setMultipleChoicePoll()" (click)="checkedBool" name="something">Multiple choice </mat-checkbox>
                   <br>
                 </div>
                 <div *ngIf="o1">
                   <!--if o1 is false then the input field will not be available-->
                   <mat-form-field>
-                    <input (keyup)="onOption2KeyUp($event)" type="text" class="form-control thought optionsClass" matInput placeholder="option 2">
+                    <input #inp1 (keyup)="onOption2KeyUp($event)" type="text" class="form-control thought optionsClass" matInput placeholder="option 2">
                     <i class="fa fa-minus-square" (click)="minusBtnClicked()"></i>
                   </mat-form-field>
                   <br>
@@ -68,7 +69,7 @@
                   <!--if o2 is false then the input field will not be available-->
                   <mat-form-field>
 
-                    <input (keyup)="onOption3KeyUp($event)" type="text" class=" form-control thought optionsClass " matInput placeholder="option 3">
+                    <input #inp1 (keyup)="onOption3KeyUp($event)" type="text" class=" form-control thought optionsClass " matInput placeholder="option 3">
                     <i class="fa fa-minus-square" (click)="minusBtnClicked()"></i>
                   </mat-form-field>
                   <br>
@@ -76,7 +77,7 @@
                 <div *ngIf="o3">
                   <!--if o3 is false then the input field will not be available-->
                   <mat-form-field>
-                    <input (keyup)="onOption4KeyUp($event)" type="text" class="form-control thought optionsClass" matInput placeholder="option 4">
+                    <input #inp1 (keyup)="onOption4KeyUp($event)" type="text" class="form-control thought optionsClass" matInput placeholder="option 4">
                     <i class="fa fa-minus-square" (click)="minusBtnClicked()"></i>
                   </mat-form-field>
                 </div>
@@ -90,37 +91,35 @@
             <mat-card class="example-card ">
               <!--mat-elevation-z0-->
               <mat-card-content class="topCard">
-              {{i+1}} {{o}}
-                  <br>
-                  <div *ngIf="!checkedBoolArray[i]">
-                  
+                {{i+1}} {{o}}
+                <br>
+                <div *ngIf="!checkedBool">
+
                   <mat-radio-group>
                     <!--*ngIf is used if contains value then print the radio button -->
-                    <mat-radio-button *ngIf="arrayOptionAll[(i*4)+4]" value="1">{{arrayOptionAll[(i*4)+4]}}</mat-radio-button>
+                    <mat-radio-button #opt1 *ngIf="arrayOptionAll[(i*4)+0]"  value="1">{{arrayOptionAll[(i*4)+0]}}</mat-radio-button>
                     <br>
-                    <mat-radio-button *ngIf="arrayOptionAll[(i*4)+5]" value="2">{{arrayOptionAll[(i*4)+5]}}</mat-radio-button>
+                    <mat-radio-button #opt2 *ngIf="arrayOptionAll[(i*4)+1]" value="2">{{arrayOptionAll[(i*4)+1]}}</mat-radio-button>
                     <br>
-                    <mat-radio-button *ngIf="arrayOptionAll[(i*4)+6]" value="3">{{arrayOptionAll[(i*4)+6]}}</mat-radio-button>
+                    <mat-radio-button #opt3 *ngIf="arrayOptionAll[(i*4)+2]" value="3">{{arrayOptionAll[(i*4)+2]}}</mat-radio-button>
                     <br>
-                    <mat-radio-button *ngIf="arrayOptionAll[(i*4)+7]" value="4">{{arrayOptionAll[(i*4)+7]}} </mat-radio-button>
+                    <mat-radio-button #opt4 *ngIf="arrayOptionAll[(i*4)+3]" value="4">{{arrayOptionAll[(i*4)+3]}} </mat-radio-button>
                   </mat-radio-group>
                 </div>
-              
+
+
+                <div *ngIf="checkedBool" >
                   
-                  <div *ngIf="checkedBoolArray[i]">
-                      <mat-radio-group>
-                        <!--*ngIf is used if contains value then print the radio button -->
-                        <mat-checkbox *ngIf="arrayOptionAll[(i*4)+4]" value="1">{{arrayOptionAll[(i*4)+4]}}</mat-checkbox>
-                        <br>
-                        <mat-checkbox *ngIf="arrayOptionAll[(i*4)+5]" value="2">{{arrayOptionAll[(i*4)+5]}}</mat-checkbox>
-                        <br>
-                        <mat-checkbox *ngIf="arrayOptionAll[(i*4)+6]" value="3">{{arrayOptionAll[(i*4)+6]}}</mat-checkbox>
-                        <br>
-                        <mat-checkbox *ngIf="arrayOptionAll[(i*4)+7]" value="4">{{arrayOptionAll[(i*4)+7]}} </mat-checkbox>
-                      </mat-radio-group>
-                    </div>
-                  <button mat-button class="pollOptions">submit</button>
-                
+                    <!--*ngIf is used if contains value then print the radio button -->
+                    <input  #opt1 type="checkbox"  name="option" value="{{arrayOptionAll[(i*4)+0]}}"  *ngIf="arrayOptionAll[(i*4)+0]">{{arrayOptionAll[(i*4)+0]}}
+                    <br>
+                    <input  #opt2 type="checkbox"  name="option" value="{{arrayOptionAll[(i*4)+1]}}"  *ngIf="arrayOptionAll[(i*4)+1]" >{{arrayOptionAll[(i*4)+1]}}
+                    <br>
+                    <input  #opt3 type="checkbox"  name="option" value="{{arrayOptionAll[(i*4)+2]}}"  *ngIf="arrayOptionAll[(i*4)+2]" >{{arrayOptionAll[(i*4)+2]}}
+                    <br>
+                    <input  #opt4 type="checkbox"  name="option" value="{{arrayOptionAll[(i*4)+3]}}"  *ngIf="arrayOptionAll[(i*4)+3]" >{{arrayOptionAll[(i*4)+3]}}
+              </div>
+              <button class="pollOptions">submit</button>
               </mat-card-content>
               <mat-card-header class="bottomCard">
                 <figure id="profileTab">
@@ -131,7 +130,6 @@
             </mat-card>
           </div>
         </div>
-
 
         <div *ngFor="let t of thoughtToShare.reverse();let i=index">
           <mat-card class="example-card ">
